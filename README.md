@@ -201,6 +201,16 @@ To automate, we use scripts instead
 - Complete the remaining fields of the neurolog
 -Send images to participants that requested a picture of their brain 
 
+---
+
+### Sending files
+
+- Upload to [Sync](https://ln.sync.com/dl/c7eabce40/4gz5w45g-gmbn5dcp-zibum4gy-64k4eg6q)
+- Enter password
+        - also easier to remember link: http://bit.ly/VladData 
+- Tabular data can now be uploaded here, by either clicking upload or dragging the files over. 
+- Contents not visible, but if upload shows 100% then they've been added
+
 
 ---
 
