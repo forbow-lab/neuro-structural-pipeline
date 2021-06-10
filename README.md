@@ -2,11 +2,11 @@
 
 The FORBOW Brain Study Manual is broken down below into five major sections:
 
-1. Background info: structure of the brain study
-2. Before the scan: outlines how to identify and schedule participants
-3. During the scan: steps to be executed at the time of scanning
+1. Background info: structure of the brain study.
+2. Before the scan: outlines how to identify and schedule participants.
+3. During the scan: steps to be executed at the time of scanning.
 4. After the scan: practices and procedures to complete when scanning is done.
-    * [1-4 covered here](https://github.com/forbow-lab/documentation-private) (request access if not visible)
+    * [1-4 covered at this hyperlink](https://github.com/forbow-lab/documentation-private) (request access if not visible).
 5. __Preprocessing and PBIL__: the focus of this section.
 
 
@@ -80,6 +80,25 @@ Now that the `rawdata` subject RS folder is organized, we will convert the RAW p
 
 Note this might take some time, and you can do multiple subjects sequentially by dragging additional RS folders into the line with the `run_mux2nii.sh` script. Likewise you can do multiple subjects in parallel by opening new terminal windows or using the GNU parallel code found in the LGI pipeline.
 
+---
+
+### Conversion: Everything else
+(typically ~10 minutes per subject)
+
+This step assumes that you have finished: transferring T1w, T2w, DTI data from OsiriX, SSH transferring RS data, and converting RS data to nifti.
+
+The following steps convert the dicom data in the `rawdata` folder into nifti format and copy the nifti data up one directory into `Biotic3T` and create and organize the subject folders in a specific way to make later preprocessing possible.
+
+1. Open the terminal.
+2. Navigate to the `_scripts` folder in /shared/uher/FORBOW_Brain/neuro_data/Biotic3T/
+3. Drag the `0_convert_dcm2niix.sh` script into the terminal
+  * alternatively, cd into the `_scripts` folder and type `0` and click **tab** to autocomplete
+4. In terminal, after the script path, type subject IDs that need to be converted (space separated), for example `032_A 033_A 031_B`
+5. Click **enter** to run script on specified subjects.
+
+Check /shared/uher/FORBOW_Brain/neuro_data/Biotic3T/ for the subjects specified. There should be new folders with the subject IDs. In those folders you will find the `unprocessed` folder which has all the nifti files ready for preprocessing, and a `log` folder where preprocessing pipeline will log all the steps and spit out any errors.
+
+---
 
 
 
@@ -96,7 +115,7 @@ The FORBOW structural pipeline adopts and modifies the Human Connectome Project 
 `./_1_scripts/NIHPD_RUN_Analysis_Pipeline.sh <SSID_SESS>`
 
 If all ran perfectly then following output is created: 
-- `./SSID_SESS_FLAIR/
+- ./SSID_SESS_FLAIR/
 -    DWI/
 -    logs/
 -    MNI-Nonlinear/
@@ -109,7 +128,7 @@ If all ran perfectly then following output is created:
 -            stats/
 -            surf/
 -        T2w/
--        unprocessed/`
+-        unprocessed/
 
 2. And this dataset can then be included when calling the master group reporting script:
 `./NIHDP_report_values2csv_HCP_WideFormat.sh  $(ls -d ???_?_FLAIR)`
