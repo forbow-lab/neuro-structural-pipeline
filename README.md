@@ -28,6 +28,30 @@ This section focuses on the 5. the data processing steps.
 
 ---
 
+### Converting the resting state (RS) images 
+
+- If you plan to convert the RS shortly after the scan, you may need to see if they are ready by looking on the BIOTIC server. To do this: 
+* `ssh biotic@lauterbur`
+  * enter password
+* Navigate to our data folder on their server `cd /biotic/data/Forbow/`
+* `ls` to see the list of participants
+* `ls` into specific participant folder
+* If participant files appear with a timestamp they are good to go, if not, you'll have to wait for BIOTIC to convert them 
+* `exit` to close connection
+
+
+After the EPI images have been transferred to the server at BIOTIC (lauterbur):
+* open terminal and `cd` into SUBJECT ID in `rawdata folder`
+* run the following command *all one line* replacing IDs with the correct subject IDs and date:
+* `nohup rsync -a -e "ssh" biotic@lauterbur:/biotic/3Tdata/Forbow/###_X/ /shared/uher/FORBOW_Brain/neuro_data/Biotic3T/rawdata/###_X_YYYYMMDD/RS/`
+  * copies the resting state data from the lauterbur server to our server into the participants RS rawdata folder
+  * make sure to supply correct subject ID and scan label for `###_X` and the correct date of scan for `YYYYMMDD`
+  * enter password
+Note: may take 10-15 minutes to copy across network (~17 GB)
+
+
+---
+
 The FORBOW structural pipeline adopts and modifies the Human Connectome Project [Minimal Preprocessing Pipeline](https://github.com/Washington-University/HCPpipelines) described in [Glasser et al. 2013](https://pubmed.ncbi.nlm.nih.gov/23668970/).
 
 ---
