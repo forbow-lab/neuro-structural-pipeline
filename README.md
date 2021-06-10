@@ -220,20 +220,23 @@ To automate, we use scripts instead
 `./_1_scripts/NIHPD_RUN_Analysis_Pipeline.sh <SSID_SESS>`
 
 If all ran perfectly then following output is created: 
-- ./SSID_SESS_FLAIR/
--    DWI/
--    logs/
--    MNI-Nonlinear/
--    Myelin/
--    T1w/
--        SID_SESS_FLAIR/
--            label/
--            mri/
--            scripts/
--            stats/
--            surf/
--        T2w/
--        unprocessed/
+
+```
+ ./SSID_SESS_FLAIR/
+    DWI/
+    logs/
+    MNI-Nonlinear/
+    Myelin/
+    T1w/
+        SID_SESS_FLAIR/
+            label/
+            mri/
+            scripts/
+            stats/
+            surf/
+        T2w/
+        unprocessed/
+```
 
 2. And this dataset can then be included when calling the master group reporting script:
 `./NIHDP_report_values2csv_HCP_WideFormat.sh  $(ls -d ???_?_FLAIR)`
