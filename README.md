@@ -10,7 +10,6 @@ The FORBOW Brain Study Manual is broken down below into five major sections:
 5. __Preprocessing and PBIL__: the focus of this section.
 
 
-
 ---
 
 ### Data Transfer
@@ -100,11 +99,25 @@ Check /shared/uher/FORBOW_Brain/neuro_data/Biotic3T/ for the subjects specified.
 
 ---
 
+### HCP Preprocessing Pipeline
+(typically 4 hours per subject)
 
+In this step we will run the Human Connectome Project Minimal Preprocessing pipelines, which are documented in detail [here](http://www.ncbi.nlm.nih.gov/pubmed/23668970), and [here](https://github.com/Washington-University/Pipelines) (and naturally on our computers). They have been modified to work with our scanner. In essence, these pipelines are a series of scripts that use programs such as FreeSurfer, FSL and other tools to clean, register, segment, and generally process the data in accordance to best methods currently available.
 
----
+This step relies on completion of all previous steps in this document.
 
-The FORBOW structural pipeline adopts and modifies the Human Connectome Project [Minimal Preprocessing Pipeline](https://github.com/Washington-University/HCPpipelines) described in [Glasser et al. 2013](https://pubmed.ncbi.nlm.nih.gov/23668970/).
+1. Open the terminal.
+2. Navigate to the `_scripts` folder in /shared/uher/FORBOW_Brain/neuro_data/Biotic3T/
+3. Drag the `1_run_hcp_all.sh` script into the terminal
+  * alternatively, cd into the `_scripts` folder and type `run` and click **tab** to autocomplete then type `.` hit tab to autocomplete again.
+4. In terminal, after the script path, type subject IDs that need to be preprocessed (space separated), for example `032_A 033_A 031_B`
+5. Click **enter** to run script on specified subjects.
+
+In order to run the participants in  parallel and staggered you can use a different command (see example below). 
+
+./\_1\_scripts/parallel_stagger.sh -j 4 -d 600 -s /shared/uher/FORBOW/analysis/\_1\_scripts/1\_run\_hcp\_all.sh  ::: 031\_B\_NP 031\_B\_FLAIR 035\_A\_NP 035\_A\_FLAIR 016\__NP 016\_C\_FLAIR 011\_D\_NP 011\_D\_FLAIR
+
+Where the _parallel_ command forces the scripts to run on different CPU cores and the _-j_ followed by a number specifies the number of jobs (should be proportional to CPU cores and RAM available - but not 100% this way as some of the scripts it runs in turn run their own parallel processing). 
 
 ---
 
