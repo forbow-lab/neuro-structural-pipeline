@@ -47,6 +47,7 @@ After the EPI images have been transferred to the server at BIOTIC (lauterbur):
   * copies the resting state data from the lauterbur server to our server into the participants RS rawdata folder
   * make sure to supply correct subject ID and scan label for `###_X` and the correct date of scan for `YYYYMMDD`
   * enter password
+
 Note: may take 10-15 minutes to copy across network (~17 GB)
 
 
