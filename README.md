@@ -106,3 +106,8 @@ If all ran perfectly then following output is created:
 2. And this dataset can then be included when calling the master group reporting script:
 `./NIHDP_report_values2csv_HCP_WideFormat.sh  $(ls -d ???_?_FLAIR)`
 
+---
+
+### Qoala-T report
+
+Processed data needs to undergo automated QC with the Qoala-T tool: [GitHub Repo](https://github.com/Qoala-T/QC), [journal article](https://www.sciencedirect.com/science/article/pii/S1053811919300138?via%3Dihub)
