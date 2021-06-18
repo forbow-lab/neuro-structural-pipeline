@@ -68,17 +68,6 @@ After the `1_run_hcp_all.sh` script completes, check the `log` folder for each i
 
 ---
 
-### Sending files
-
-- Upload to [Sync](https://ln.sync.com/dl/c7eabce40/4gz5w45g-gmbn5dcp-zibum4gy-64k4eg6q)
-- Enter password
-        - also easier to remember link: http://bit.ly/VladData 
-- Tabular data can now be uploaded here, by either clicking upload or dragging the files over. 
-- Contents not visible, but if upload shows 100% then they've been added
-
-
----
-
 ### NIHPD Analysis Scripts (modified from HCP-PP)
 
 1. For simplicity, one main script wraps subject-level work-flow scripts to completely process a new dataset:
@@ -111,3 +100,14 @@ If all ran perfectly then following output is created:
 ### Qoala-T report
 
 Processed data needs to undergo automated QC with the Qoala-T tool: [GitHub Repo](https://github.com/Qoala-T/QC), [journal article](https://www.sciencedirect.com/science/article/pii/S1053811919300138?via%3Dihub)
+
+---
+
+### Sending tabular data
+
+- Upload to [Sync](https://ln.sync.com/dl/c7eabce40/4gz5w45g-gmbn5dcp-zibum4gy-64k4eg6q)
+- Enter password
+        - also easier to remember link: http://bit.ly/VladData 
+- Tabular data can now be uploaded here, by either clicking upload or dragging the files over. 
+- Contents not visible, but if upload shows 100% then they've been added
+
