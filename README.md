@@ -60,14 +60,6 @@ After the `1_run_hcp_all.sh` script completes, check the `log` folder for each i
 
 ---
 
-## Data Quality and Reminders
-- Create a  "readme" file that contains pertinent notes about that particular participant and scan (e.g. T1 BRAVO collected twice due to motion, kept 2nd ) as well as the exam number
-- Create a file to rate the quality of the T1 BRAVO, T2 CUBE, and T2 PROMO on a four point scale (e.g. 109_A_qc_ratings). See any previous rawdata folder for an example
-- Complete the remaining fields of the neurolog
--Send images to participants that requested a picture of their brain 
-
----
-
 ### NIHPD Analysis Scripts (modified from HCP-PP)
 
 1. For simplicity, one main script wraps subject-level work-flow scripts to completely process a new dataset:
