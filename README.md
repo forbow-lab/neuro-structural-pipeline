@@ -93,6 +93,9 @@ If all ran perfectly then following output is created:
 
 Processed data needs to undergo automated QC with the Qoala-T tool: [GitHub Repo](https://github.com/Qoala-T/QC), [journal article](https://www.sciencedirect.com/science/article/pii/S1053811919300138?via%3Dihub)
 
+* add more descriptions
+* show output file
+
 ---
 
 ### Sending tabular data
