@@ -93,8 +93,9 @@ If all ran perfectly then following output is created:
 
 Processed data needs to undergo automated QC with the Qoala-T tool: [GitHub Repo](https://github.com/Qoala-T/QC), [journal article](https://www.sciencedirect.com/science/article/pii/S1053811919300138?via%3Dihub)
 
-* add more descriptions
-* show output file
+* run Qoala-T script [to be linked here]
+* upload `aseg_stats.txt` and left and right `aparc_area_[hemi].txt` and ` aparc_thickness_[hemi].txt` to [Qoala-T Shiny app](https://qoala-t.shinyapps.io/qoala-t_app/)
+* click `Execute Qoala-T predictions` and save locally before uploading to sync or github
 
 ---
 
