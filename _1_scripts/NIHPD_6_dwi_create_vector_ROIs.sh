@@ -113,6 +113,10 @@ for Subj in $SUBJECTS ; do
 		applywarp -i ${T_MNI_BRAIN} -r nodif.nii -w mni_2t1_nonlin_warp --postmat=t1_2dwi.mat -o mni_t1_brain_2dwi
 	fi
 	
+	## initialize group variables for reporting into master output file.
+	grpHdr=""
+	grpData=""
+	
 	### generate DWI_QC_motion report
 	subjQCcsv="${S}_DWI_QC_motion_report.csv"
 	if [ "$FORCE_OVERWRITE_MOTION_REPORT" == "yes" ]; then
@@ -124,11 +128,11 @@ for Subj in $SUBJECTS ; do
 		Data="$S,$V"
 		if [ "$iSubj" -eq 0 ]; then
 			if [ "$VERBOSE" == "yes" ]; then echo "$Hdr" ; fi
-			echo "$Hdr" >$RFILE
+			grpHdr="$Hdr"
 		fi
+		grpData="$Data"
 		echo "$Hdr" >$subjQCcsv 
 		echo "$Data" >>$subjQCcsv
-		echo "$Data" >>$RFILE
 		if [ "$VERBOSE" == "yes" ]; then echo "$Data"; fi
 	fi
 	
@@ -163,11 +167,11 @@ for Subj in $SUBJECTS ; do
 		done
 		if [ "$iSubj" -eq 0 ]; then
 			if [ "$VERBOSE" == "yes" ]; then echo "$Hdr" ; fi
-			echo "$Hdr" >$RFILE
+			grpHdr="$grpHdr,$Hdr"
 		fi
-		echo "$Hdr" >$subjWM20 
+		echo "$Hdr" >$subjWM20
 		echo "$Data" >>$subjWM20
-		echo "$Data" >>$RFILE
+		grpData="$grpData,$Data"
 		if [ "$VERBOSE" == "yes" ]; then echo "$Data"; fi
 	fi
 	
@@ -212,11 +216,11 @@ for Subj in $SUBJECTS ; do
 		done
 		if [ "$iSubj" -eq 0 ]; then
 			if [ "$VERBOSE" == "yes" ]; then echo "$Hdr" ; fi
-			echo "$Hdr" >$RFILE
+			grpHdr="$grpHdr,$Hdr"
 		fi
 		echo "$Hdr" >$subjWM48
 		echo "$Data" >>$subjWM48
-		echo "$Data" >>$RFILE
+		grpData="$grpData,$Data"
 		if [ "$VERBOSE" == "yes" ]; then echo "$Data"; fi
 	fi
 	
@@ -260,11 +264,11 @@ for Subj in $SUBJECTS ; do
 			done
 			if [ "$iSubj" -eq 0 ]; then
 				if [ "$VERBOSE" == "yes" ]; then echo "$Hdr" ; fi
-				echo "$Hdr" >$RFILE
+				grpHdr="$grpHdr,$Hdr"
 			fi
 			echo "$Hdr" >$subjWMparc
 			echo "$Data" >>$subjWMparc
-			echo "$Data" >>$RFILE
+			grpData="$grpData,$Data"
 			if [ "$VERBOSE" == "yes" ]; then echo "$Data"; fi
 		fi
 	fi
@@ -300,18 +304,26 @@ for Subj in $SUBJECTS ; do
 			done
  			if [ "$iSubj" -eq 0 ]; then
 				if [ "$VERBOSE" == "yes" ]; then echo "$Hdr" ; fi
-				echo "$Hdr" >$RFILE
+				grpHdr="$grpHdr,$Hdr"
 			fi
 			echo "$Hdr" >$subjHemiWM
 			echo "$Data" >>$subjHemiWM
-			echo "$Data" >>$RFILE
+			grpData="$grpData,$Data"
 			if [ "$VERBOSE" == "yes" ]; then echo "$Data"; fi
 
 		fi
 	fi
 	
+	if [ "$iSubj" -eq 0 ]; then
+		echo "$grpHdr" >$RFILE
+	fi
+	echo "$grpData" >>$RFILE
+	if [ "$VERBOSE" == "yes" ]; then echo -e "$grpHdr\n$grpData\n" ; fi
+	
 	let iSubj=iSubj+1
 done
 
 exit 0
+
+
 
